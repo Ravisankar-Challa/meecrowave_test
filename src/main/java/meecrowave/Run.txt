@@ -1,0 +1,20 @@
+package meecrowave;
+
+import javax.json.bind.Jsonb;
+import javax.json.bind.JsonbBuilder;
+import javax.json.bind.JsonbConfig;
+import javax.json.bind.config.PropertyNamingStrategy;
+
+public class Run {
+
+    public static void main(String[] args) {
+        JsonbConfig config = new JsonbConfig().withPropertyNamingStrategy(PropertyNamingStrategy.LOWER_CASE_WITH_UNDERSCORES);
+        Jsonb jsonb = JsonbBuilder.create(config);
+        meecrowave.model.Person p = new meecrowave.model.Person();
+        p.setPersonAge(12);
+        p.setPersonName("David");
+        p.setPersonGender("Male");
+        System.out.println(jsonb.toJson(p));
+    }
+
+}
