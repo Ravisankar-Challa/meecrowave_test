@@ -1,19 +1,13 @@
 package meecrowave.model;
 
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter
+@Setter
 public class ErrorMessage {
-    private int errorCode;
+    private String errorCode;
+    private String errorName;
+    private String errorMessage;
     private String errorDescription;
-    public int getErrorCode() {
-        return errorCode;
-    }
-    public void setErrorCode(int errorCode) {
-        this.errorCode = errorCode;
-    }
-    public String getErrorDescription() {
-        return errorDescription;
-    }
-    public void setErrorDescription(String errorMessage) {
-        this.errorDescription = errorMessage;
-    }
-    
 }

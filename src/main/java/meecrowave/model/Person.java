@@ -1,5 +1,8 @@
 package meecrowave.model;
 
+import java.time.LocalDate;
+
+import javax.json.bind.annotation.JsonbDateFormat;
 import javax.json.bind.annotation.JsonbPropertyOrder;
 import javax.validation.constraints.Pattern;
 
@@ -8,8 +11,12 @@ public class Person {
     
     @Pattern(regexp = "[A-Z]", message="Failed 1")
     private String personName;
+    
     private int personAge;
     private String personGender;
+    
+    @JsonbDateFormat("MM/dd/yyyy")
+    private LocalDate dateOfBirth;
     
     @Pattern(regexp = "[A-Z]", message="Failed 2")
     public String getPersonName() {
@@ -30,6 +37,12 @@ public class Person {
     public void setPersonGender(String personGender) {
         this.personGender = personGender;
     }
+	public LocalDate getDateOfBirth() {
+		return dateOfBirth;
+	}
+	public void setDateOfBirth(LocalDate dateOfBirth) {
+		this.dateOfBirth = dateOfBirth;
+	}
     
     
 }

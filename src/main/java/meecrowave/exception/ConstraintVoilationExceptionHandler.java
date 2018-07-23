@@ -29,7 +29,7 @@ public class ConstraintVoilationExceptionHandler implements ExceptionMapper<Cons
                                 .collect(Collectors.joining(", "));
         
         ErrorMessage errorMessage = new ErrorMessage();
-        errorMessage.setErrorCode(Status.BAD_REQUEST.getStatusCode());
+        errorMessage.setErrorCode("004");
         errorMessage.setErrorDescription(errorString);
         
         return Response.status(Status.BAD_REQUEST)

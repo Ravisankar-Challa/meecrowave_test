@@ -1,5 +1,6 @@
 package meecrowave.exception;
 
+@SuppressWarnings("serial")
 public class ApplicationException extends RuntimeException {
     private final int errorCode;
     private final String errorMessage;

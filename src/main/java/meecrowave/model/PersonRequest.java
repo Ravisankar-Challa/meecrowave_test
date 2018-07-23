@@ -4,7 +4,7 @@ import javax.validation.constraints.Pattern;
 
 public class PersonRequest {
     
-    @Pattern(regexp = "[A-Z]", message="Failed 3")
+    @Pattern(regexp = "[A-Z]", message="Please check the name")
     private String name;
 
     public String getName() {
