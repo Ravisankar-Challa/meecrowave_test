@@ -13,7 +13,7 @@ import javax.ws.rs.core.Response;
 import org.junit.jupiter.api.Test;
 
 import static org.hamcrest.CoreMatchers.equalTo;
-import static org.junit.Assert.assertThat;
+import static org.hamcrest.MatcherAssert.assertThat;
 import static org.junit.jupiter.api.Assertions.assertAll;
 
 import meecrowave.model.ErrorMessage;
@@ -45,7 +45,7 @@ public class PersonControllerIt {
 		ErrorMessage errorMessage = jsonb.fromJson(response.readEntity(String.class), ErrorMessage.class);
 		assertAll(
 			() -> assertThat(response.getStatus(), equalTo(400)),
-			() -> assertThat(errorMessage.getErrorCode(), equalTo(400)),
+			() -> assertThat(errorMessage.getErrorCode(), equalTo("004")),
 			() -> assertThat(errorMessage.getErrorDescription(), equalTo("Invalid value  : PersonController :"
 					+ " sayHello.arg0 : may not be null"))
 		);
@@ -60,7 +60,7 @@ public class PersonControllerIt {
 								.get();
 		assertThat(response.getStatus(), equalTo(400));
 		ErrorMessage errorMessage = jsonb.fromJson(response.readEntity(String.class), ErrorMessage.class);
-		assertThat(errorMessage.getErrorCode(), equalTo(400));
+		assertThat(errorMessage.getErrorCode(), equalTo("004"));
 		assertThat(errorMessage.getErrorDescription(), equalTo("Invalid value 123 : PersonController :"
 				+ " sayHello.arg0 : must match the following regular expression: [A-Z]"));
 		
@@ -75,7 +75,7 @@ public class PersonControllerIt {
 								.get();
 		assertThat(response.getStatus(), equalTo(501));
 		ErrorMessage errorMessage = jsonb.fromJson(response.readEntity(String.class), ErrorMessage.class);
-		assertThat(errorMessage.getErrorCode(), equalTo(501));
+		assertThat(errorMessage.getErrorCode(), equalTo("000"));
 		assertThat(errorMessage.getErrorDescription(), equalTo("errorMessage"));
 		
 	}
@@ -89,7 +89,7 @@ public class PersonControllerIt {
 								.post(Entity.entity("{\"name\":\"ravi\"}", APPLICATION_JSON));
 		assertThat(response.getStatus(), equalTo(400));
 		ErrorMessage errorMessage = jsonb.fromJson(response.readEntity(String.class), ErrorMessage.class);
-		assertThat(errorMessage.getErrorCode(), equalTo(400));
+		assertThat(errorMessage.getErrorCode(), equalTo("004"));
 		assertThat(errorMessage.getErrorDescription(), equalTo("Invalid value ravi : PersonController :"
 				+ " sayHello.arg1.name : Please check the name"));
 		

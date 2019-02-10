@@ -57,7 +57,7 @@ public class AccessLogFilter implements ContainerRequestFilter, ContainerRespons
                        .uri(requestContext.getUriInfo().getAbsolutePath().toString())
                        .protocol(requestContext.getUriInfo().getRequestUri().getScheme())
                        .status(responseContext.getStatus())
-                       .responseTime(System.currentTimeMillis() - (Long)requestContext.getProperty(REQUEST_START_TIME))
+                       //.responseTime(System.currentTimeMillis() - (Long)requestContext.getProperty(REQUEST_START_TIME))
                        .userAgent(requestContext.getHeaderString(USER_AGENT))
                        .contentType(requestContext.getHeaderString("Content-Type"))
                        .referer(requestContext.getHeaderString(REFERER))
