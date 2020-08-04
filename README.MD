@@ -1,5 +1,5 @@
 For tomcat create one with out keypass
-keytool -genkeypair -alias ravi_key_and_certificate -keystore ravi.p12 -storepass sankar -storetype PKCS12 -keyalg RSA -keysize 2048 -validity 36500 -dname "CN=localhost, OU=IT, O=TCS, L=Sydney, S=NSW, C=AU" -v
+keytool -genkeypair -alias ravi_key_and_certificate -keystore ravi.p12 -storepass sankar -storetype PKCS12 -keyalg RSA -keysize 2048 -validity 36500 -dname "CN=localhost, OU=IT, O=TC, L=Sydney, S=NSW, C=AU" -v
 
 Export X509 Public KeyCertificate
 openssl pkcs12 -in /home/ravi/ravi.p12 -nokeys -out cert.pem
@@ -7,7 +7,7 @@ openssl pkcs12 -in /home/ravi/ravi.p12 -nokeys -out cert.pem
 Export unencrypted private key
 openssl pkcs12 -in /home/ravi/ravi.p12 -nodes -nocerts -out key.pem
 
-keytool -genkeypair -alias ravi_key_and_certificate -keypass sankar -keystore ravi.p12 -storepass sankar -storetype PKCS12 -keyalg RSA -keysize 2048 -validity 36500 -dname "CN=localhost, OU=IT, O=TCS, L=Sydney, S=NSW, C=AU" -v
+keytool -genkeypair -alias ravi_key_and_certificate -keypass sankar -keystore ravi.p12 -storepass sankar -storetype PKCS12 -keyalg RSA -keysize 2048 -validity 36500 -dname "CN=localhost, OU=IT, O=TC, L=Sydney, S=NSW, C=AU" -v
 
 -Djava.util.concurrent.ForkJoinPool.common.parallelism=5
 
